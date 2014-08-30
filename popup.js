@@ -22,7 +22,8 @@ function closePopup (event) {
 
     doc.body.appendChild(script);
 
-    doc.body.addEventListener('click', closePopup);
-    doc.querySelector('button.close').addEventListener('click', closePopup);
   }
+
+  doc.body.addEventListener('click', closePopup);
+  doc.querySelector('button.close').addEventListener('click', closePopup);
 })(window, document);

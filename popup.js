@@ -5,13 +5,24 @@ function closePopup (event) {
 };
 
 (function (win, doc) {
-  doc.querySelector('a.embedly-card').href = decodeURIComponent(win.location.search.replace(/^\?/,''));
+  var link = doc.querySelector('a.embedly-card');
+  var url = decodeURIComponent(win.location.search.replace(/^\?/,''));
 
-  var script = doc.createElement('script');
-  script.src = 'https://cdn.embedly.com/widgets/platform.js';
+  if (/^https:/.test(url)) {
+    link.parentNode.removeChild(link);
+    var message = doc.createElement('p');
+    message.innerHTML = 'Sorry, currently this extension does not work with HTTPS URLs, due to an issue with <a href="https://twitter.com/embedly" target="_blank">Embedly</a> Cards, we are working on an update with Embedly\'s help!<br/>Thanks for your patience.';
 
-  doc.body.appendChild(script);
+    doc.body.appendChild(script);
+  } else {
+    doc.querySelector('a.embedly-card').href = url;
 
-  doc.body.addEventListener('click', closePopup);
-  doc.querySelector('button.close').addEventListener('click', closePopup);
+    var script = doc.createElement('script');
+    script.src = 'https://cdn.embedly.com/widgets/platform.js';
+
+    doc.body.appendChild(script);
+
+    doc.body.addEventListener('click', closePopup);
+    doc.querySelector('button.close').addEventListener('click', closePopup);
+  }
 })(window, document);

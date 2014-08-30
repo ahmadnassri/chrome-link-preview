@@ -13,7 +13,7 @@ function closePopup (event) {
     var message = doc.createElement('p');
     message.innerHTML = 'Sorry, currently this extension does not work with HTTPS URLs, due to an issue with <a href="https://twitter.com/embedly" target="_blank">Embedly</a> Cards, we are working on an update with Embedly\'s help!<br/>Thanks for your patience.';
 
-    doc.body.appendChild(script);
+    doc.querySelector('.container').appendChild(message);
   } else {
     doc.querySelector('a.embedly-card').href = url;
 

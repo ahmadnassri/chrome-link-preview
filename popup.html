@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>Link Preview</title>
+    <style media="screen">
+      .container {
+        width: 650px;
+        padding: 10px 15px 20px 15px;
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 10px;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        cursor: pointer;
+        filter: alpha(opacity=50);
+        opacity: .5;
+      }
+
+      button.close {
+        -webkit-appearance: none;
+        padding: 0;
+        cursor: pointer;
+        background: 0 0;
+        border: 0;
+      }
+
+      .close {
+        float: right;
+        font-size: 21px;
+        font-weight: 700;
+        line-height: 1;
+        color: rgb(0, 0, 0);
+        text-shadow: 0 1px 0 rgb(255, 255, 255);
+        filter: alpha(opacity=20);
+        opacity: .2;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <button type="button" class="close"><span>&times;</span></button>
+
+      <a href="#" class="embedly-card"><img src="loader.gif"/></a>
+
+      <script src="popup.js"></script>
+    </div>
+  </body>
+</html>
